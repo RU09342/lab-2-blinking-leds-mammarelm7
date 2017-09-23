@@ -16,7 +16,7 @@ void main(void)
     // Stop watchdog timer
 	WDTCTL = WDTPW | WDTHOLD;
 
-	//Enables port 1 as output
+	//Enables port 1.0 as output
 	P1DIR |= 0x01;
 
 	//declared as volatile to indicate i can change at any time
