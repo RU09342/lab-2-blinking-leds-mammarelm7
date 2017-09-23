@@ -4,6 +4,8 @@ Matt Mammarelli
 ECE 09342-2
 */
 
+//MSP430G2553 Simple Blink led
+
 #include <msp430.h>				
 
 void main(void)

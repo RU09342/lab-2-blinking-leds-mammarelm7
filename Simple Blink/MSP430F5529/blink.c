@@ -3,6 +3,9 @@ Matt Mammarelli
 9/18/17
 ECE 09342-2
 */
+
+//MSP430F5529 simple blink led
+
 #include <msp430.h>				
 
 void main(void)
