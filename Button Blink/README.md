@@ -1,21 +1,21 @@
-# Button Blink
-Now that you have looked at blinking the LED from some built in delay, but what if we wanted to control the state of the LED by a button? You may think "Why would I need a Microcontroller to perform the job of a switch?". And that is where you come in. The bare minimum for this part of the lab is to essentially replicate a switch with your development board.
+# Lab 2: Button Blink
+The code for each of the boards were pretty similar, the main differences where the pinouts for the input buttons used. The code just checks for the button input and then toggles the onboard P1.0 led
 
-# YOU NEED TO CREATE THE FOLLOWING FOLDERS
-* MSP430G2553
-* MSP430F5529
-* MSP430FR2311
-* MSP430FR5994
-* MSP430FR6989
+## MSP430F5529 
+Button: P1.1
+## MSP430FR2311 
+Button: P1.1
+## MSP430FR5994 
+Button: P5.6
+## MSP430FR6989 
+Button: P1.1
+## MSP430G2553 
+Button: P1.3 
 
-## README
-Remember to replace this README with your README once you are ready to submit. I would recommend either making a copy of this file or taking a screen shot. There might be a copy of all of these README's in a folder on the top level depending on the exercise.
+##Huge Distinction of MSP430FR6989 and MSP430F5529
+For these two boards you have to initialize P1OUT and P1DIR with an assignment operator (=). If you try to do something normal like a |= it will work with the other boards but will not work with these two for some reason.
 
-## Extra Work
-What can we do to make this a little bit more worthy of needing a microcontroller.
+##Toggling doesn't always work
+For all of these boards, sometimes pressing the button increases the intensity of the output led instead of turning it off. This might be a problem with the P1REN statement for each of these boards since this is done with a |= instead of an =
 
-### Button Based Speed Control
-Much like the UART controlled speed, what if you could cycle between speeds based on a button press? The speed could progress through a cycle of "Off-Slow-Medium-Fast" looping back when you hit the end.
 
-### Color Change
-What if upon a button press, the LED which was blinking changed. Some of the development boards contain two LEDs, so you could swap between a Red and a Green LED.
