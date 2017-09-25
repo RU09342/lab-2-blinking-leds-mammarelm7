@@ -17,6 +17,6 @@ First the watchdog timer is stopped.
 Then port 1 is enabled as output. 
 Then there is an infinte while loop where a delay is created and the led blinks.
 
-##Extra Work UART MSP430FR2311
+## Extra Work UART MSP430FR2311
 For this board I included a msp430fr231x_euscia0_uart_01.c file which implements uart. It allows you to type in ascii characters to control the speed of the blinking led. You can send 's' or 'S' for slow, 'm' or 'M' for medium, and 'f' or 'F' for fast.
 
