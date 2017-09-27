@@ -22,6 +22,10 @@ void main(void) {
     //~LOCKLPM5=8'b0 and by anding PM5CTL0 it clears the register
     PM5CTL0 &= ~LOCKLPM5;
 
+	//Selects I/O function
+	P1SEL = 0;
+	P9SEL = 0;
+	
     //Enables port 1.0 as output
     P1DIR |= BIT0;
 
