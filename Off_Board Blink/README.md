@@ -1,25 +1,77 @@
-# Off Board Blink
-Now that we have the whole blinking LED out of the way, why don't we try making things a little more convenient by taking the G2553 off the development board and into a breadboard. In addition to the software, your README needs to also contain a picture of your circuit with at least 2 LEDs blinking all on a breadboard an without a development board. This means that you will need:
-* Proper power being supplied to the processor
-* Proper Reset Circuitry 
-* Proper Bypass and Bulk Capacitors as needed
+# Lab 2: Off Board Blink
+For the off board blink, I used the identical code from the MSP430G2553 button blink.c. I extracted the processor from the development board and placed it on a breadboard wiring a circuit that replicated the functional circuits built into the actual development board
 
-Please be advised that you can easily damage or destroy one of the pins on the MSP430 by applying the wrong voltage or attempting to draw too much current from it. Really check your design before you power up to ensure you do not need request another processor.
+## Power Delivery
 
-## "Do I need to use a power supply to power this thing?"
-In the beginning part of the exercise, I would say that you can use the 5V/3.3V rails built into the development board by running wires. However, I would recommend looking into how to supply the processor from something like a battery or the power supply. You might want to look into different types of regulators. For example, your circuits may be powered off of a battery that is only 1.8V, or on a system that can only supply you with 13V.
+VCC and Gnd were ganged from the socketed pins on the development board over to the breadboard.
 
-## "What about the buttons and resistors and LEDS?"
-You remember those parts bins in the back of the teaching labs? They contain most everything you will need to do this portion of the lab. You should really make a effort to try and replicate what is on those development boards on the breadboard so you can begin to see what is needed to design with a microcontroller. Mess around with different color LEDS and see if they behave the same as the simple Red LEDs.
+## Reset Circuitry
 
-# YOU NEED TO CREATE THE FOLLOWING FOLDER
-* MSP430G2553
+RST was ganged to VCC so that the MSP would function since reset is active low.
 
-## Extra Work
-Once you get to this point, you are pretty much set in terms of GPIO mastery getting the LEDs to blink, but there are some more exploratory tasks that you can do.
+## Bypass Capacitors
 
-### Off-Board Programming 
-Do we need to keep re-inserting the MSP into the development board to program it, or is there some way to keep the chip in the circuit? For starters, try to connect the header which connects the debugger and emulator (that parts that is really dense in parts) to your chip on your board. You will need to look at the datasheets for the MSP430G2553 and the Launchpad itself to see where and how to connect to the programmer. Next, you should really look at using the JTAG connector that is also available on your board.
+For this circuit bypass capacitors could have been used but weren't necessary.
 
-### UART/Button Control
-Remember that stuff you did a few parts ago? Can you actually get all of that working again off of the development board? Can you control which lights are on, the speed they blink at, etc.
+
+## Lab Blink On
+
+When the button is pressed, the P1.3 line is brought low and the leds turn on.
+
+![alt text](MSP430G2553/blinkOn.JPG "Blinking On")
+
+## Lab Blink Off
+
+When the button is not pressed, the P1.3 line is high due to the pullup resistor and the leds are off.
+
+![alt text](MSP430G2553/blinkOff.JPG "Blinking Off")
+
+## Code
+
+```c
+/*
+Matt Mammarelli
+9/18/17
+ECE 09342-2
+*/
+
+//MSP430G2553 Button Blink led
+//sometimes pressing button makes led brighter instead of turning off
+
+#include <msp430g2553.h>
+
+void main(void)
+{
+    //WDTCTL is watchdog timer control
+    //WDTPW watchdog timer + password, is an interrupt
+    //WDTHOLD watchdog timer +hold, if 1 watchdog timer is stopped
+    // Stop watchdog timer
+    WDTCTL = WDTPW | WDTHOLD;
+
+    //selects I/O function
+    P1SEL = 0;
+
+    //resistor enabled, input 1.3
+    P1REN |= BIT3;
+
+    //Sets Resistor to pullup, 1.0 is low, has to use = to initialize
+    P1OUT = BIT3;
+
+	//Enables port 1.0 as output, any bits that are 0 are treated as inputs
+	P1DIR =BIT0;
+
+
+
+	while(1) //infinite while loop
+	{
+
+	    //checks to see if input p1.3 is low
+	    if (!((P1IN & BIT3)==BIT3)){
+	        //toggles p1.0 red led
+	        P1OUT ^= BIT0;
+	    }
+
+
+	}
+}
+```
