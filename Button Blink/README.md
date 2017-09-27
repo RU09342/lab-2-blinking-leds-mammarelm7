@@ -24,8 +24,7 @@ void main(void)
     // Stop watchdog timer
 	WDTCTL = WDTPW | WDTHOLD;
 
-	//selects I/O function
-	P1SEL = 0;
+	
 	
     //resistor enabled
     P1REN |= BIT1;
@@ -81,8 +80,7 @@ void main(void) {
     //~LOCKLPM5=8'b0 and by anding PM5CTL0 it clears the register
     PM5CTL0 &= ~LOCKLPM5;
 
-	//selects I/O function
-	P1SEL = 0;
+	
 	
     //Enables port 1.0 as output
     P1DIR |= BIT0;
@@ -138,9 +136,7 @@ void main(void) {
     //~LOCKLPM5=8'b0 and by anding PM5CTL0 it clears the register
     PM5CTL0 &= ~LOCKLPM5;
 	
-	//selects I/O function
-	P5SEL = 0;
-	P1SEL = 0;
+
 
     //resistor enabled input P5.6
     P5REN |= BIT6;
@@ -193,8 +189,7 @@ void main(void) {
     //~LOCKLPM5=8'b0 and by anding PM5CTL0 it clears the register
     PM5CTL0 &= ~LOCKLPM5;
 
-	//selects I/O function
-	P1SEL = 0;
+	
 	
    //resistor enabled
     P1REN |= BIT1;
@@ -245,8 +240,7 @@ void main(void)
     // Stop watchdog timer
     WDTCTL = WDTPW | WDTHOLD;
 
-    //selects I/O function
-    P1SEL = 0;
+   
 
     //resistor enabled, input 1.3
     P1REN |= BIT3;

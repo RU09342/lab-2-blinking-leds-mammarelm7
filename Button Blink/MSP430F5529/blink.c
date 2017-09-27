@@ -17,8 +17,7 @@ void main(void)
     // Stop watchdog timer
 	WDTCTL = WDTPW | WDTHOLD;
 
-	//selects I/O function
-	P1SEL = 0;
+	
 	
     //resistor enabled
     P1REN |= BIT1;

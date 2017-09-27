@@ -25,9 +25,7 @@ void main(void) {
     //~LOCKLPM5=8'b0 and by anding PM5CTL0 it clears the register
     PM5CTL0 &= ~LOCKLPM5;
 	
-	//selects I/O function
-	P5SEL = 0;
-	P1SEL = 0;
+	
 
     //resistor enabled input P5.6
     P5REN |= BIT6;
