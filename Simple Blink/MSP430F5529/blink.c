@@ -16,6 +16,9 @@ void main(void)
     // Stop watchdog timer
 	WDTCTL = WDTPW | WDTHOLD;
 
+	//Selects I/O function
+	P1SEL = 0;
+	
 	//Enables port 1.0 as output
 	P1DIR |= 0x01;
 
