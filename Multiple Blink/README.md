@@ -24,9 +24,7 @@ void main(void)
     // Stop watchdog timer
 	WDTCTL = WDTPW | WDTHOLD;
 
-	//Selects I/O function
-	P1SEL = 0;
-	P4SEL = 0;
+	
 	
 	//Enables port 1.0
 	P1DIR |= BIT0;
@@ -87,9 +85,7 @@ void main(void) {
     //~LOCKLPM5=8'b0 and by anding PM5CTL0 it clears the register
     PM5CTL0 &= ~LOCKLPM5;
 
-	//Selects I/O function
-	P1SEL = 0;
-	P2SEL = 0;
+	
 	
     //Enables port 1.0 as output
     P1DIR |= BIT0;
@@ -155,8 +151,7 @@ void main(void) {
     //~LOCKLPM5=8'b0 and by anding PM5CTL0 it clears the register
     PM5CTL0 &= ~LOCKLPM5;
 
-	//Selects I/O function
-	P1SEL = 0;
+
 	
     //Enables port 1.0 and port 1.1 as output
     P1DIR |= (BIT0|BIT1);
@@ -217,9 +212,7 @@ void main(void) {
     //~LOCKLPM5=8'b0 and by anding PM5CTL0 it clears the register
     PM5CTL0 &= ~LOCKLPM5;
 
-	//Selects I/O function
-	P1SEL = 0;
-	P9SEL = 0;
+	
 	
     //Enables port 1.0 as output
     P1DIR |= BIT0;
@@ -282,8 +275,7 @@ void main(void)
     // Stop watchdog timer
 	WDTCTL = WDTPW | WDTHOLD;
 
-	//Selects I/O function
-	P1SEL = 0;
+	
 	
 	//Enables port 1.0 and port 1.6 as output
 	P1DIR |= (BIT0|BIT6);
