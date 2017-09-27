@@ -81,15 +81,18 @@ void main(void) {
     PM5CTL0 &= ~LOCKLPM5;
 
 	
-	
-    //Enables port 1.0 as output
-    P1DIR |= BIT0;
-
-    //Sets input pin 1.1 to be initialized to be 0
-    P1OUT |= ~BIT1;
-
     //resistor enabled
     P1REN |= BIT1;
+
+    //Sets Resistor to pullup, 1.0 is low, has to use = to initialize
+    P1OUT = BIT1;
+
+    //Enables port 1.0 as output
+    P1DIR = BIT0;
+
+
+
+
 
     for(;;) //creates an infinite loop so blinks indefinitely
     {
@@ -103,6 +106,7 @@ void main(void) {
 
     }
 }
+
 ```
 
 ## MSP430FR5994 
