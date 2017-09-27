@@ -17,7 +17,9 @@ void main(void)
     // Stop watchdog timer
 	WDTCTL = WDTPW | WDTHOLD;
 
-
+	//selects I/O function
+	P1SEL = 0;
+	
     //resistor enabled
     P1REN |= BIT1;
 
@@ -31,7 +33,8 @@ void main(void)
 	//infinite while loop
 	while(1)
 	{
-	    if((P1IN & BIT1) == BIT1){ //starts the led off, could do if(!P1IN & BIT1) to start as off
+		//checks to see if input p1.1 is low
+	    if(!((P1IN & BIT1) == BIT1)){ 
 	        //Toggles P1.0 RED led
 	        P1OUT ^= BIT0;
 	    }

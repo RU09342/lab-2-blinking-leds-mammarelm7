@@ -22,7 +22,10 @@ void main(void) {
     //~LOCKLPM5=8'b0 and by anding PM5CTL0 it clears the register
     PM5CTL0 &= ~LOCKLPM5;
 
-    //resistor enabled
+	//selects I/O function
+	P1SEL = 0;
+	
+   //resistor enabled
     P1REN |= BIT1;
 
     //Sets Resistor to pullup, 1.0 is low, has to use = to initialize
@@ -35,7 +38,8 @@ void main(void) {
 
     for(;;)//creates an infinite loop that checks for input
     {
-        if((P1IN & BIT1)==BIT1){
+		//checks to see if input 1.1 is low
+        if(!((P1IN & BIT1)==BIT1)){
 
             //Toggles P1.0 RED LED
               P1OUT ^= BIT0;

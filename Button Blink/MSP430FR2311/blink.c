@@ -24,6 +24,9 @@ void main(void) {
     //~LOCKLPM5=8'b0 and by anding PM5CTL0 it clears the register
     PM5CTL0 &= ~LOCKLPM5;
 
+	//selects I/O function
+	P1SEL = 0;
+	
     //Enables port 1.0 as output
     P1DIR |= BIT0;
 
@@ -35,8 +38,8 @@ void main(void) {
 
     for(;;) //creates an infinite loop so blinks indefinitely
     {
-        //checks to see if p1.1 is pressed
-        if ((P1IN & BIT1) == BIT1){
+        //checks to see if p1.1 is low
+        if (!((P1IN & BIT1) == BIT1)){
            //toggles p1.0 red led
            P1OUT ^= BIT0;
         }

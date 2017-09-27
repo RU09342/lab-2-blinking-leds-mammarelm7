@@ -24,6 +24,10 @@ void main(void) {
     //LOCKLPM5 = Locks I/O pin, bit is reset by a power cycle
     //~LOCKLPM5=8'b0 and by anding PM5CTL0 it clears the register
     PM5CTL0 &= ~LOCKLPM5;
+	
+	//selects I/O function
+	P5SEL = 0;
+	P1SEL = 0;
 
     //resistor enabled input P5.6
     P5REN |= BIT6;
@@ -39,7 +43,7 @@ void main(void) {
     for(;;)//creates an infinite loop so blinks indefinitely
     {
         //checks button input
-        if(!(P5IN & BIT6)){ //starts led off
+        if(!((P5IN & BIT6)==BIT6)){ //starts led off
             //Toggle P1.0 Red led
             P1OUT ^= BIT0;
         }
