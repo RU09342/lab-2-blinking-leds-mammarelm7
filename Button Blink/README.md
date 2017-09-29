@@ -278,7 +278,7 @@ For these two boards you have to initialize P1OUT and P1DIR with an assignment o
 For all of these boards, sometimes pressing the button increases the intensity of the output led instead of turning it off. This might be a problem with the P1REN statement for each of these boards since this is done with a |= instead of an =
 
 ## Extra: MSP430FR2311 blinkSpeedExtra.c
-This file will change the speed of the blinking led based on how many times it is pressed. 1 press = slow, 2 presses = medium, 3 presses = fast
+This file will change the speed of the blinking led based on how many times it is pressed. 1 press = slow, 2 presses = medium, 3 presses = fast, then cycles back after fast.
 
 ```c
 /*
