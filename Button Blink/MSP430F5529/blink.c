@@ -29,7 +29,7 @@ void main(void)
 	P1DIR = BIT0;
 
 
-	//infinite while loop
+	//infinitely checks for button input
 	while(1)
 	{
 		//checks to see if input p1.1 is low

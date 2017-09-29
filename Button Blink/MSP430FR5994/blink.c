@@ -38,7 +38,7 @@ void main(void) {
 
 
 
-    for(;;)//creates an infinite loop so blinks indefinitely
+    for(;;)//infinitely checks for button input
     {
         //checks button input
         if(!((P5IN & BIT6)==BIT6)){ //starts led off

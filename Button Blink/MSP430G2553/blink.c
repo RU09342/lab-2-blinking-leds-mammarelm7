@@ -30,7 +30,7 @@ void main(void)
 
 
 
-	while(1) //infinite while loop
+	while(1) //infinitely checks for button input
 	{
 
 	    //checks to see if input p1.3 is low

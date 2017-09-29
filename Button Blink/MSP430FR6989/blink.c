@@ -35,7 +35,7 @@ void main(void) {
 
 
 
-    for(;;)//creates an infinite loop that checks for input
+    for(;;)//infinitely checks for button input
     {
 		//checks to see if input 1.1 is low
         if(!((P1IN & BIT1)==BIT1)){

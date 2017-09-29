@@ -41,7 +41,7 @@ void main(void) {
     int j; //how many times led blinks
 
 
-    for(;;) //creates an infinite loop so blinks indefinitely
+    for(;;) //infinitely checks for button input
     {
         //checks to see if p1.1 is low
         if (!((P1IN & BIT1) == BIT1)){
