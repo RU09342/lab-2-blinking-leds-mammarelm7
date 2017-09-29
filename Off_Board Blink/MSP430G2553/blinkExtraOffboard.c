@@ -19,7 +19,7 @@ void main(void)
 
   
 
-    //resistor enabled, input 1.3
+    //resistor enabled, input 1.4
     P1REN |= BIT4;
 
     //Sets Resistor to pullup, 1.0 is low, has to use = to initialize
@@ -33,7 +33,7 @@ void main(void)
 	while(1) //infinite while loop
 	{
 
-	    //checks to see if input p1.3 is low
+	    //checks to see if input p1.4 is low
 	    if (!((P1IN & BIT4)==BIT4)){
 	        //toggles p1.0 red led
 	        P1OUT ^= BIT0;
