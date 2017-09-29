@@ -36,7 +36,7 @@ void main(void)
 	P1DIR = BIT0;
 
 
-	//infinite while loop
+	//infinitely checks for button input
 	while(1)
 	{
 		//checks to see if input p1.1 is low
@@ -94,7 +94,7 @@ void main(void) {
 
 
 
-    for(;;) //creates an infinite loop so blinks indefinitely
+    for(;;) //infinitely checks for button input
     {
         //checks to see if p1.1 is low
         if (!((P1IN & BIT1) == BIT1)){
@@ -153,7 +153,7 @@ void main(void) {
 
 
 
-    for(;;)//creates an infinite loop so blinks indefinitely
+    for(;;)//infinitely checks for button input
     {
         //checks button input
         if(!((P5IN & BIT6)==BIT6)){ //starts led off
@@ -206,7 +206,7 @@ void main(void) {
 
 
 
-    for(;;)//creates an infinite loop that checks for input
+    for(;;)//infinitely checks for button input
     {
 		//checks to see if input 1.1 is low
         if(!((P1IN & BIT1)==BIT1)){
@@ -257,7 +257,7 @@ void main(void)
 
 
 
-	while(1) //infinite while loop
+	while(1) //infinitely checks for button input
 	{
 
 	    //checks to see if input p1.3 is low
@@ -324,7 +324,7 @@ void main(void) {
     int j; //how many times led blinks
 
 
-    for(;;) //creates an infinite loop so blinks indefinitely
+    for(;;) //infinitely checks for button input
     {
         //checks to see if p1.1 is low
         if (!((P1IN & BIT1) == BIT1)){
