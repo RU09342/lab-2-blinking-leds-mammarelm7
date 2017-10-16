@@ -1,5 +1,5 @@
-# Lab2: Simple Blink
-For each of the boards, there is a blink.c file that will blink the onboard led with a 50% duty cycle
+# Lab 2: Simple Blink
+For each of the boards, there is a blink.c file that will blink the onboard led with a 50% duty cycle using a for loop delay
 
 # Code Differences
 There are two main blink.c files that were created for these boards. One blink.c file applies for the MSP430FR2311,MSP430FR5994,MSP430FR6989. The other blink.c file applies to the MSP430F5529, MSP430G2553. 
