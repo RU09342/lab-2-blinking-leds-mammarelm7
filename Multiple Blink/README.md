@@ -1,6 +1,7 @@
 # Lab 2: Multiple Blink
 
 ## For each of the respective boards, a similar coding structure was used, but with different pinouts for the leds.
+The code toggles two leds by creating for loop delays between them.
 
 ## MSP430F5529 
 GREEN LED: P4.7
